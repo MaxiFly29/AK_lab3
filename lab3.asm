@@ -6,7 +6,7 @@ STACK 512
 
 MACRO cont
 dec si  		;si = si - 1
-add bx, 10h     ;bx = bx - 16
+add bx, 10h     ;bx = bx + 16
 jcxz lpe        ;Якщо cx == 0, то стрибаємо на мітку lpe
 dec cx			;cx = cx - 1
 ENDM cont
@@ -39,7 +39,7 @@ mov bx, 3 * 10h     ;задаємо початкове значення bx = 48
 mov cx, 10h - 3		;задаємо початкове значення cx = 13
 
 lp:
-	mov [array + si + bx], 'S'	;array[bx][si] = 'S'
+	mov [array + si + bx], 'S'	;array[bx/16][si] = 'S'
 	cont						;макрос для зміни індексів (по діагоналі з правого верхнього до нижнього лівого)
 	mov [array + si + bx], 'D'
 	cont
