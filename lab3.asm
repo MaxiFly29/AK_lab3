@@ -66,3 +66,4 @@ mov ah, 4ch
 mov al, 0
 int 21h			;Вихід з програми з кодом 0
 end Start
+
